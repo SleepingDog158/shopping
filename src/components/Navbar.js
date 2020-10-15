@@ -7,15 +7,14 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
-import { Switch, Route, Link, Router, useParams, useRouteMatch } from "react-router-dom";
-import useDataProducts from "../useCustomHooks/useDataProducts";
+import { Switch, Route, Link } from "react-router-dom";
+
 import "../App.css";
 import { Category } from "../Pages/Category";
 import { Home } from "../Pages/Home";
-import {Child} from "../Pages/Child"
+
 export const NavBar = () => {
-  const { category } = useDataProducts();
-  let { path, url } = useRouteMatch();
+  
   return (
     <div>
       <Navbar bg="primary" variant="dark" style={{ marginBottom: "15px" }}>
@@ -24,16 +23,16 @@ export const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
             <NavDropdown title="Categories" id="basic-nav-dropdown">
-              <NavDropdown.Item>
-                <Link to="/grocery">Grocery</Link>
+              <NavDropdown.Item as={Link}  to="/grocery">
+                Grocery
               </NavDropdown.Item>
 
-              <NavDropdown.Item>
-                <Link to="/cars">Cars</Link>
+              <NavDropdown.Item as={Link} to="/cars">
+                Cars
               </NavDropdown.Item>
 
-              <NavDropdown.Item>
-                <Link to="/drugs">Drugs</Link>
+              <NavDropdown.Item as={Link} to="/drugs">
+                Drugs
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>

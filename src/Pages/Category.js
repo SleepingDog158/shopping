@@ -1,6 +1,6 @@
-import React, { useState,useEffect } from "react";
+import React from "react";
 
-import { useParams } from "react-router-dom";
+import { Switch, useParams, Link } from "react-router-dom";
 import {
   Container,
   Row,
@@ -16,14 +16,13 @@ import useDataProducts from "../useCustomHooks/useDataProducts";
 export const Category = () => {
   const { products, category } = useDataProducts();
   const { id } = useParams();
- 
+
   console.log(id);
-  const focus = category.find((d) => id);
-  console.log(focus);
+  const focus = category.find((d) => d.id === id);
+  console.log(focus?.name);
   const shownProducts = products.filter((d) => d.category === focus?.name);
-  console.log(shownProducts);
+
   return (
-    
     <Container style={{ height: "100%" }}>
       <h2>{focus?.name}</h2>
       <Row>
@@ -34,14 +33,15 @@ export const Category = () => {
             className="product-card"
             key={i}
           >
+            <Link></Link>
             <span className="tooltiptext">{product.name}</span>
             <Card
-              style={{ minHeight: "18rem", maxHeight: "18rem" }}
+              style={{ minHeight: "6rem", maxHeight: "18rem" }}
               onClick={() => console.log(products.length)}
             >
               <CardImg
                 top
-                style={{ width: "10rem", height: "10rem" }}
+                style={{ width: "100%", height: "50%" }}
                 src={product.pic}
                 alt=""
               />
@@ -64,6 +64,9 @@ export const Category = () => {
           </Col>
         ))}
       </Row>
+      <Switch>
+
+      </Switch>
     </Container>
   );
 };
