@@ -1,38 +1,51 @@
-.App {
-  text-align: center;
+.form-inline {
+  flex-wrap: nowrap !important;
+  margin-left: 5%;
+  width: 60%;
+  margin-right: auto;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.main-footer {
   color: white;
+  padding: 1rem;
+  background-color: #0275d8;
+  position: absolute;
+  top: 200;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 10px;
+}
+.product-card .tooltiptext {
+  visibility: hidden;
+  min-width: 120px;
+  width: auto;
+  background-color: rgb(61, 61, 61);
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+  top: 100px;
+  left: 90%;
 }
 
-.App-link {
-  color: #61dafb;
+.product-card:hover .tooltiptext {
+  visibility: visible;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.product-card .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent rgb(61, 61, 61) transparent transparent;
+}
+.product-card:hover{
+  z-index:1;
+  transform: scale(1.05);
 }
