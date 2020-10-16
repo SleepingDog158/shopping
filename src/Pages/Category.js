@@ -14,13 +14,12 @@ import {
 import { Child } from "./Child";
 import useDataProducts from "../useCustomHooks/useDataProducts";
 export const Category = () => {
-  const { products, category } = useDataProducts();
+  const {category } = useDataProducts();
   const { id } = useParams();
-
-  const focus = category.find((d) => d.id === id);
-
-  const shownProducts = products.filter((d) => d.category === focus?.name);
-
+  const focus = category.find((d) => d.id === parseInt(id));
+  console.log(focus)
+  const shownProducts = focus?.products
+  console.log(shownProducts)
   return (
     <Container style={{ height: "100%" }}>
       <h2

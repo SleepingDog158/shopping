@@ -37,7 +37,7 @@ export const NavBar = () => {
             
           </Form>
           <Nav>
-            <Nav.Link href="/cart" style={{color:"white"}}>Cart</Nav.Link>
+            <Nav.Link href="/cart" style={{color:"white"}}>Cart()</Nav.Link>
             <NavDropdown
               title="Account"
               id="basic-nav-dropdown"
