@@ -5,35 +5,27 @@ import {
   NavDropdown,
   Form,
   FormControl,
-  Button,
 } from "react-bootstrap";
 import { Switch, Route, Link } from "react-router-dom";
-
+import useDataProduct from "../useCustomHooks/useDataProducts"
 import "../App.css";
 import { Category } from "../Pages/Category";
 import { Home } from "../Pages/Home";
 
 export const NavBar = () => {
-  
+  const {category}=useDataProduct()
   return (
     <div>
-      <Navbar bg="primary" variant="dark" style={{ marginBottom: "15px" }}>
+      <Navbar bg="primary" variant="dark" style={{ marginBottom: "10px" }}>
         <Navbar.Brand href="/">Some Logo Here</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav>
+          <Nav style={{marginLeft:"20px"}}>
             <NavDropdown title="Categories" id="basic-nav-dropdown">
-              <NavDropdown.Item as={Link}  to="/grocery">
-                Grocery
-              </NavDropdown.Item>
-
-              <NavDropdown.Item as={Link} to="/cars">
-                Cars
-              </NavDropdown.Item>
-
-              <NavDropdown.Item as={Link} to="/drugs">
-                Drugs
-              </NavDropdown.Item>
+              {category?.map((c, i) => (
+              <NavDropdown.Item as={Link}  to={`/${c.id}`} key={i}>
+                {c.name}
+              </NavDropdown.Item>))}
             </NavDropdown>
           </Nav>
           <Form inline>
@@ -42,10 +34,10 @@ export const NavBar = () => {
               placeholder="Search"
               className="mr-sm-2 w-100"
             />
-            <Button variant="outline-light">Search</Button>
+            
           </Form>
           <Nav>
-            <Nav.Link href="#Cart">Cart</Nav.Link>
+            <Nav.Link href="/cart" style={{color:"white"}}>Cart</Nav.Link>
             <NavDropdown
               title="Account"
               id="basic-nav-dropdown"
