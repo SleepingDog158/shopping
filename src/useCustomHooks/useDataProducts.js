@@ -4,6 +4,7 @@ import Axios from "axios"
 export default function(){
     const [products, setProducts] = useState([])
     const [category, setCategory] =useState([])
+    const [recommended, setRecommended] =useState([])
 
 
     const getCategory = async()=>{
@@ -36,10 +37,27 @@ export default function(){
         getProducts()
     }, [])
 
+    const getRecommended = async()=>{
+        const {data}= await Axios.get(
+            //recommenđe API insert here
+            "https://x4bjd.sse.codesandbox.io/products"
+        )
+        if(data){
+            setRecommended(data)
+        }
+    }
+    
+
+
+    useEffect(() => {
+        getRecommended()
+    }, [])
+
     
 
     return {
         products: products,
-        category: category
+        category: category,
+        recommended: recommended,
     }
 }
