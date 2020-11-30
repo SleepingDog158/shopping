@@ -40,7 +40,7 @@ export default function(){
     const getRecommended = async()=>{
         const {data}= await Axios.get(
             //recommenđe API insert here
-            "https://x4bjd.sse.codesandbox.io/products"
+            "https://g43q9.sse.codesandbox.io/products "
         )
         if(data){
             setRecommended(data)
@@ -51,6 +51,10 @@ export default function(){
 
     useEffect(() => {
         getRecommended()
+        const interval=setInterval(()=>{
+            getRecommended()
+           },1000)
+           return()=>clearInterval(interval)
     }, [])
 
     

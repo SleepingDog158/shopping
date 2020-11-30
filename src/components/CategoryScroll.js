@@ -7,9 +7,10 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 
 export const CategoryScroll = () => {
   const { category, recommended } = useDataProduct();
-  console.log(recommended)
+
   return (
     <div>
+      {recommended && (
       <div>
         <div
           style={{
@@ -24,76 +25,76 @@ export const CategoryScroll = () => {
           </a>
         </div>
         <div>
-          {recommended &&
-        <ScrollMenu
-          arrowLeft={
-            <div
-              style={{
-                fontSize: "30px",
-                fontWeight: "bold",
-                width: "50px",
-                height: "50px",
-                textAlign: "center",
-              }}
-            >
-              {"<"}
-            </div>
-          }
-          arrowRight={
-            <div
-              style={{
-                fontSize: "30px",
-                fontWeight: "bold",
-                width: "50px",
-                height: "50px",
-                textAlign: "center",
-              }}
-            >
-              {">"}
-            </div>
-          }
-          data={recommended
-            .sort((a, b) => a.buys - b.buys)
-            .slice(0, 10)
-            .map((product, i) => (
-              <Link to={`/product/${product.id}`} key={i}>
+            <ScrollMenu
+              arrowLeft={
                 <div
-                  className="product-card"
                   style={{
-                    margin: "15px",
-                    width: "150px",
-                    height: "300px",
+                    fontSize: "30px",
+                    fontWeight: "bold",
+                    width: "50px",
+                    height: "50px",
+                    textAlign: "center",
                   }}
                 >
-                  <Card style={{ minHeight: "6rem", maxHeight: "18rem" }}>
-                    <CardImg
-                      top
-                      style={{ width: "100%", height: "50%" }}
-                      src={product.pic}
-                      alt=""
-                    />
-                    <CardBody>
-                      <CardTitle
-                        style={{
-                          height: "4rem",
-                          fontWeight: "bold",
-                          fontSize: 14,
-                          overflow: "hidden",
-                        }}
-                      >
-                        {product.name}
-                      </CardTitle>
-                      <CardText style={{ fontWeight: "bold" }}>
-                        {product.price}
-                      </CardText>
-                    </CardBody>
-                  </Card>
+                  {"<"}
                 </div>
-              </Link>
-            ))}
-        /> }
+              }
+              arrowRight={
+                <div
+                  style={{
+                    fontSize: "30px",
+                    fontWeight: "bold",
+                    width: "50px",
+                    height: "50px",
+                    textAlign: "center",
+                  }}
+                >
+                  {">"}
+                </div>
+              }
+              data={recommended
+                .sort((a, b) => a.buys - b.buys)
+                .slice(0, 10)
+                .map((product, i) => (
+                  <Link to={`/product/${product.id}`} key={i}>
+                    <div
+                      className="product-card"
+                      style={{
+                        margin: "15px",
+                        width: "150px",
+                        height: "300px",
+                      }}
+                    >
+                      <Card style={{ minHeight: "6rem", maxHeight: "18rem" }}>
+                        <CardImg
+                          top
+                          style={{ width: "100%", height: "50%" }}
+                          src={product.pic}
+                          alt=""
+                        />
+                        <CardBody>
+                          <CardTitle
+                            style={{
+                              height: "4rem",
+                              fontWeight: "bold",
+                              fontSize: 14,
+                              overflow: "hidden",
+                            }}
+                          >
+                            {product.name}
+                          </CardTitle>
+                          <CardText style={{ fontWeight: "bold" }}>
+                            {product.price}
+                          </CardText>
+                        </CardBody>
+                      </Card>
+                    </div>
+                  </Link>
+                ))}
+            />
+         
         </div>
-      </div>
+      </div> )}
       <div>
         {category.map((d, i) => (
           <div key={i}>
@@ -181,6 +182,176 @@ export const CategoryScroll = () => {
           </div>
         ))}
       </div>
+      {recommended && (
+      <div>
+        <div
+          style={{
+            width: "20%",
+            background:
+              "linear-gradient(90deg, rgba(2,117,216,1) 0%, rgba(255,255,255,0.6477941518404237) 100%)",
+            paddingLeft: "10px",
+          }}
+        >
+          <a style={{ fontFamily: "fantasy", fontSize: 20, color: "white" }}>
+            Recommended
+          </a>
+        </div>
+        <div>
+            <ScrollMenu
+              arrowLeft={
+                <div
+                  style={{
+                    fontSize: "30px",
+                    fontWeight: "bold",
+                    width: "50px",
+                    height: "50px",
+                    textAlign: "center",
+                  }}
+                >
+                  {"<"}
+                </div>
+              }
+              arrowRight={
+                <div
+                  style={{
+                    fontSize: "30px",
+                    fontWeight: "bold",
+                    width: "50px",
+                    height: "50px",
+                    textAlign: "center",
+                  }}
+                >
+                  {">"}
+                </div>
+              }
+              data={recommended
+                .sort((a, b) => a.buys - b.buys)
+                .slice(0, 10)
+                .map((product, i) => (
+                  <Link to={`/product/${product.id}`} key={i}>
+                    <div
+                      className="product-card"
+                      style={{
+                        margin: "15px",
+                        width: "150px",
+                        height: "300px",
+                      }}
+                    >
+                      <Card style={{ minHeight: "6rem", maxHeight: "18rem" }}>
+                        <CardImg
+                          top
+                          style={{ width: "100%", height: "50%" }}
+                          src={product.pic}
+                          alt=""
+                        />
+                        <CardBody>
+                          <CardTitle
+                            style={{
+                              height: "4rem",
+                              fontWeight: "bold",
+                              fontSize: 14,
+                              overflow: "hidden",
+                            }}
+                          >
+                            {product.name}
+                          </CardTitle>
+                          <CardText style={{ fontWeight: "bold" }}>
+                            {product.price}
+                          </CardText>
+                        </CardBody>
+                      </Card>
+                    </div>
+                  </Link>
+                ))}
+            />
+         
+        </div>
+      </div> )}
+      {recommended && (
+      <div>
+        <div
+          style={{
+            width: "20%",
+            background:
+              "linear-gradient(90deg, rgba(2,117,216,1) 0%, rgba(255,255,255,0.6477941518404237) 100%)",
+            paddingLeft: "10px",
+          }}
+        >
+          <a style={{ fontFamily: "fantasy", fontSize: 20, color: "white" }}>
+            Recommended
+          </a>
+        </div>
+        <div>
+            <ScrollMenu
+              arrowLeft={
+                <div
+                  style={{
+                    fontSize: "30px",
+                    fontWeight: "bold",
+                    width: "50px",
+                    height: "50px",
+                    textAlign: "center",
+                  }}
+                >
+                  {"<"}
+                </div>
+              }
+              arrowRight={
+                <div
+                  style={{
+                    fontSize: "30px",
+                    fontWeight: "bold",
+                    width: "50px",
+                    height: "50px",
+                    textAlign: "center",
+                  }}
+                >
+                  {">"}
+                </div>
+              }
+              data={recommended
+                .sort((a, b) => a.buys - b.buys)
+                .slice(0, 10)
+                .map((product, i) => (
+                  <Link to={`/product/${product.id}`} key={i}>
+                    <div
+                      className="product-card"
+                      style={{
+                        margin: "15px",
+                        width: "150px",
+                        height: "300px",
+                      }}
+                    >
+                      <Card style={{ minHeight: "6rem", maxHeight: "18rem" }}>
+                        <CardImg
+                          top
+                          style={{ width: "100%", height: "50%" }}
+                          src={product.pic}
+                          alt=""
+                        />
+                        <CardBody>
+                          <CardTitle
+                            style={{
+                              height: "4rem",
+                              fontWeight: "bold",
+                              fontSize: 14,
+                              overflow: "hidden",
+                            }}
+                          >
+                            {product.name}
+                          </CardTitle>
+                          <CardText style={{ fontWeight: "bold" }}>
+                            {product.price}
+                          </CardText>
+                        </CardBody>
+                      </Card>
+                    </div>
+                  </Link>
+                ))}
+            />
+         
+        </div>
+      </div> )}
     </div>
   );
 };

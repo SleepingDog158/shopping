@@ -11,6 +11,7 @@ import useDataProduct from "../useCustomHooks/useDataProducts"
 import "../App.css";
 import { Category } from "../Pages/Category";
 import { Home } from "../Pages/Home";
+import {Cart} from "../Pages/Cart";
 
 export const NavBar = () => {
   const {category}=useDataProduct()
@@ -49,8 +50,11 @@ export const NavBar = () => {
         </Navbar.Collapse>
       </Navbar>
       <Switch>
+      
         <Route path="/" exact component={Home} />
+        <Route path="/cart" exact component={Cart}/>
         <Route path="/:id" children={<Category />} />
+        
       </Switch>
     </div>
   );
